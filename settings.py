@@ -1,0 +1,1 @@
+base_url = 'https://uts.sirius.online//#/auth/register/qainternship'
