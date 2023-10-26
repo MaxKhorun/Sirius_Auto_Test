@@ -9,13 +9,20 @@ from selenium.webdriver.chrome.service import Service
 
 @pytest.fixture()
 def set_driver(request):
-    options = webdriver.ChromeOptions()
+    # options = webdriver.ChromeOptions()
+    # # options.add_argument('--headless')
+    # options.add_argument("--no-sandbox")
+    # options.add_argument("--disable-gpu")
+    # service_set = Service(r"C:\SF\GITHUB\chromedriver_win32\chromedriver-win64\chromedriver-win64\chromedriver.exe")
+    # w_driver = webdriver.Chrome(service=service_set, options=options)
+    # w_driver.maximize_window()
+
+    options = webdriver.EdgeOptions()
     # options.add_argument('--headless')
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-gpu")
-    service_set = Service(r"C:\SF\GITHUB\chromedriver_win32\chromedriver-win64\chromedriver-win64\chromedriver.exe")
-    w_driver = webdriver.Chrome(service=service_set, options=options)
-    w_driver.maximize_window()
+    w_driver = webdriver.Edge(options=options)
+    w_driver.set_window_size(1200, 800)
 
     return w_driver
 

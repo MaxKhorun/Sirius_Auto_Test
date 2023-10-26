@@ -1,6 +1,7 @@
 from settings import base_url
 from selenium.webdriver.common.by import By
 from Pages.base import WebPage
+from Pages.elements import WebElement
 
 
 class RegistrationPageLocators(WebPage):
@@ -11,4 +12,4 @@ class RegistrationPageLocators(WebPage):
 
         super().__init__(web_driver, url)
         
-    name_fld = (By.LINK_TEXT, 'Фамилия')
+    name_fld = WebElement(class_name="test-locator-sf-lastName")
