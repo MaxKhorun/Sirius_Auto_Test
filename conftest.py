@@ -22,7 +22,7 @@ def set_driver(request):
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-gpu")
     w_driver = webdriver.Edge(options=options)
-    w_driver.set_window_size(1200, 800)
+    w_driver.maximize_window()
 
     return w_driver
 
