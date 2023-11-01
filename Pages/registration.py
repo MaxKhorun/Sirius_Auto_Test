@@ -11,6 +11,7 @@ class RegistrationPageLocators(WebPage):
 
         super().__init__(web_driver, url)
 
+    title = WebElement(class_name='login_page__title')
     """Данные о себе"""
     surname_fld = WebElement(xpath="(//input[contains( @ type, 'text')])[1]")
     name_fld = WebElement(xpath="(//input[contains( @ type, 'text')])[2]")
