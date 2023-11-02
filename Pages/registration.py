@@ -1,4 +1,4 @@
-from settings import base_url
+from settings import DataLogin
 from Pages.base import WebPage
 from Pages.elements import WebElement
 
@@ -7,7 +7,7 @@ class RegistrationPageLocators(WebPage):
 
     def __init__(self, web_driver, url=''):
         if not url:
-            url = base_url
+            url = DataLogin.base_url
 
         super().__init__(web_driver, url)
 
