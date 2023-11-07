@@ -8,26 +8,25 @@ class DataLogin:
     base_url = 'https://uts.sirius.online//#/auth/register/qainternship'
     mail_address = 'sea-of-max@yandex.ru'
     mail_pass = os.getenv("PASSWORD_YA")
-    vosh_login = ''
-    name = ''
-    surmane = ''
-    fathersname = ''
+    vosh_login = 'v00.000.000'
+    name = 'Макс'
+    surmane = 'Хор'
+    fathersname = 'Ген'
 
     d_o_birth = '12.12.1988'
-    phone_numb = ''
-    snils = ''
-    profesion = ''
-    city = ''
-    comp_name = ''
-    school = ''
-    grade = ''
+    phone_numb = '123456789'
+    snils = '16675209900'
+    profesion = 'СуперМарио'
+    city = 'Астана'
+    comp_name = 'йцукенгш'
+    school = 'йцукенгш456'
+    grade = '5Ю'
 
 
 class WrongDataLogin:
 
     mail_address = '456@9.ro'
-    mail_pass = ''
-    vosh_loginzero = 'v00.000.000'
+    vosh_loginzero = '00.000.000'
     vosh_loginlatin = 'vdf.weq.mnb'
     namelatin = 'qwertyuiopasdfghjklzxcvbnm'
     namecyrillic = 'цукенгшщзхъфывапролджэячсмитьбю'
@@ -36,13 +35,11 @@ class WrongDataLogin:
     surmane = ''
     fathersname = ''
 
-    d_o_birth = ''
+    d_o_birth = '00.00.1000'
     phone_13dig = '+79346784562163'
-    snils = ''
+    snils = '000000000000'
     profesion = ''
-    city = ''
+    city = '23456789'
     comp_namespec = '!"\'#$%&()*+-,/:;<=>?@[\\]^_{|}~'
     school = ''
     grade = ''
-
-print(WrongDataLogin.name260)

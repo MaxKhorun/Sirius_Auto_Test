@@ -1,27 +1,33 @@
 import uuid
 from datetime import datetime
-
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+fixt = pytest.fixture
 
 
-@pytest.fixture()
+@fixt(params=["Chrome", "Firefox", "Edge"])
 def set_driver(request):
-    # options = webdriver.ChromeOptions()
-    # # options.add_argument('--headless')
-    # options.add_argument("--no-sandbox")
-    # options.add_argument("--disable-gpu")
-    # service_set = Service(r"C:\SF\GITHUB\chromedriver_win32\chromedriver-win64\chromedriver-win64\chromedriver.exe")
-    # w_driver = webdriver.Chrome(service=service_set, options=options)
-    # w_driver.maximize_window()
-
-    options = webdriver.EdgeOptions()
-    # options.add_argument('--headless')
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-gpu")
-    w_driver = webdriver.Edge(options=options)
-    w_driver.maximize_window()
+    if request.param == "Chrome":
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-gpu")
+        service_set = Service(r"C:\Users\M.Kh\PycharmProjects\chromedriver-win64\chromedriver-win64\chromedriver.exe")
+        w_driver = webdriver.Chrome(service=service_set, options=options)
+        w_driver.maximize_window()
+    if request.param == "Firefox":
+        options = webdriver.FirefoxOptions()
+        options.add_argument("-headless")
+        w_driver = webdriver.Firefox(options=options)
+        w_driver.maximize_window()
+    if request.param == "Edge":
+        options = webdriver.EdgeOptions()
+        options.add_argument('--headless')
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-gpu")
+        w_driver = webdriver.Edge(options=options)
+        w_driver.maximize_window()
 
     return w_driver
 
@@ -37,7 +43,7 @@ def pytest_runtest_makereport(item, call):
     return rep
 
 
-@pytest.fixture()
+@fixt()
 def web_driver(set_driver, request):
     w_driver = set_driver
 
@@ -54,7 +60,7 @@ def web_driver(set_driver, request):
     w_driver.quit()
 
 
-@pytest.fixture(autouse=True)
+@fixt(autouse=True)
 def time_for_test():
     start_time = datetime.now()
 
